@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta prefix="og: http://ogp.me/ns#" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/72956b8baa.js" crossorigin="anonymous"></script>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="./images/pokeball.png"/>
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Ahh Pika, here we go again!">
+        <meta property="og:description" content="Особенный день....">
+        <meta property="og:image" content="https://i.pinimg.com/736x/c5/84/a4/c584a47ba4aee46d17514cf5be1ff8fd.jpg">
+        <link rel="stylesheet" href="style.css">
+        <title>Особенный день!</title>
+    </head>
+    
+<body style="overflow: hidden;">
+    <!------------------------------------Audio-------------------------------------->
+    <audio id="AudioMain" loop="loop" src="./Audio/Audio1.mp3" type="audio/mpeg"></audio>
+    <audio id="AudioAnya" loop="loop" src="./Audio/Anya_waku.mp3" type="audio/mpeg"></audio>
+    <!------------------------------------Main--------------------------------------->
+    <canvas id="canvas"></canvas>
+    <img class="anya" id ="anya" src="./images/anya.png" alt="">
+    <section class="message">
+        <div class="message-box">
+            <div class="message-content">
+                <p>О, у тебя новое сообщение!</p>
+                <button class="js-email">Прочти</button>
+            </div>
+        </div>
+    </section>
+    <!------------------------------------Modal-------------------------------------->
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
+            <div class="page-wrapper">
+                <div class="card">
+                    <div class="card-packaging bg-img-base">
+                    <div class="card-center">
+                        <a class="close bg-img-base" ondblclick="return OpenL();" href="#" style="background-image: url(https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/close-circle-512.png)"></a>
+                        <div class="card-center-content">
+                            <div style="text-align: center; font-size: 40px;" class = "card-center-content-name">С ДНЁМ РОЖДЕНИЯ</div>
+                            <div style="text-align: center; font-size: 40px;" class = "card-center-content-name">ИРИНА</div>
+                            <div class="card-center-content-invite">
+                                February 18th is always a special day...
+                            </div>
+                            <div class="card-center-content-bottom">Пусть каждый день будет ярким, как звезда, и приносит только радость, смех и незабываемые моменты! Пусть счастье всегда будет с тобой, а впереди ждут только самые удивительные приключения!</div>
+                            <div id="heart"></div>
+                        </div>
+                    </div>
+                    <div class="card--first">
+                        <div class="card-wrapper bg-img-base front" style="background-image: url(https://i.pinimg.com/736x/9a/81/21/9a81212d15bcb7d79bd152d74779a614.jpg)">
+                        <a class="open" href="#">
+                          <div class="open-main"><span class="open-title">Open</span></div>
+                        </a>
+                      </div>
+                      <div class="card-wrapper bg-img-base back" style="background-image: url(./images/background1.png);">
+                      </div>
+                    </div>
+                    <div class="card--third">
+                      <div class="card-wrapper bg-img-base front" style="background-image: url(https://i.pinimg.com/736x/97/d0/74/97d0749c6db0d7095c8918e4e5f9adaa.jpg)"></div>
+                      <div class="card-wrapper bg-img-base back" style="background-image: url(./images/background3.png);"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

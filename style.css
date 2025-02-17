@@ -1,0 +1,494 @@
+:root{
+    --size: 14px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: 'Pacifico', cursive;
+}
+
+#canvas{
+    position:absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-image: url(./images/newyear.jpg);
+    background-size:cover;
+    background-position: center;
+}
+
+#anya{
+    position: absolute;
+    left: -20em;
+    bottom: -20em;
+    width: 25em;
+    transition: width 2s;
+    animation-delay: 2s;
+    animation-name: appear;
+    -webkit-animation-duration: 4s;
+    animation-fill-mode: forwards;
+    cursor: progress;
+}
+
+#anya:hover{
+    width: 30em;
+}
+
+.message{
+    opacity: 0;
+    position: absolute;
+    left: 3.5em;
+    bottom: 16em;
+    animation-delay: 6s;
+    animation-name: appearMessage;
+    -webkit-animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.message-box{
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #A8DDFD;
+    width: 200px;
+    height: 80px;
+    text-align: left;
+    font: 400 .9em 'Open Sans', sans-serif;
+    border: 1px solid #97C6E3;
+    border-radius: 10px;
+}
+
+.message-box::after{
+    content: '';
+    position: absolute;
+    border-top: 100px solid #A8DDFD;
+    border-left: 15px solid transparent;
+    border-right: 10px solid transparent;
+    left: 20px;
+}
+
+.message-content{
+    width: fit-content;
+}
+
+.message-content p {
+    font-size: var(--size);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: solid 1px #333;
+    animation: type-text 4s steps(25) forwards 6s, cursor-blink 1s steps(1) infinite 6s;
+}
+
+.message-content button{
+    font-size: var(--size);
+    opacity: 0;
+    color: #444444;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    text-align: right;
+    background: none;
+    padding: 0 2px;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    cursor: pointer;
+    animation-delay: 10s;
+    animation-name: appearButton;
+    -webkit-animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.message-content button:hover{
+    color: #000;
+}
+
+@keyframes appear{
+    0%{
+        transform: rotate(0);
+        left: -20em;
+        bottom: -20em;
+    }
+    100%{
+        transform: rotate(10deg);
+        left: -6em;
+        bottom: -11em;
+    }
+}
+
+@keyframes appearMessage {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes type-text {
+    0% { width: 0%;}
+    100% { width: 100%;}
+}
+
+@keyframes cursor-blink {
+    0% { border-right-color: #333; }      
+    24% { border-right-color: #333; }      
+    25% { border-right-color: transparent; } 
+    75% {border-right-color: transparent;}
+    76% {border-right-color: #333;}
+    100% { border-right-color: #333; }     
+}
+
+@keyframes appearButton {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+/* ---------------------------------------------------------------- */
+
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.modal.open{
+    display: flex;
+}
+
+/* Modal container */
+.modal-container{
+    position: relative;
+    background-color: #ffffff00;
+    width: 60%;
+    max-height: 80%;
+    max-width: calc(100% - 100px);
+    animation: modalFadeIn ease 2s;
+}
+
+@keyframes modalFadeIn{
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+.bg-img-base {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  
+.card-center {
+    position: relative;
+    min-height: 500px;
+}
+   
+.card-packaging {
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    min-height: 500px;
+    box-shadow: 0 0 6px 2px #926c6c;
+}
+  
+.card .open {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -7px;
+    transition: .3s;
+}
+  
+.card .open:hover {
+    right: -10px;
+    transition: .3s;
+}
+  
+.card .open-main {
+    display: inline-block;
+    line-height: 36px;
+    background: #9183b2;
+    padding: 0 3px 0 0;
+    border-top-left-radius: 7px 7px;
+    border-bottom-left-radius: 7px 7px;  
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+  
+.card .open-title {
+    text-align: center;
+    min-width: 70px;
+    display: inline-block;
+    line-height: 30px;
+    /* border-top: 1px dashed white;
+    border-bottom: 1px dashed white; */
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+  
+.card--first,
+.card--third {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: all .9s;
+    transform-style: preserve-3d;
+    z-index: 2;
+    box-shadow: 2px 0 6px 2px #926c6c;
+}
+  
+.card--first {
+    transition-delay: .4s;
+}
+  
+.card--third {
+    z-index: 1;
+    transform-origin: right;
+    transition: all .9s;
+    box-shadow: -2px 0 6px 2px #926c6c;
+}
+
+.card-packaging.is-open .card--first {
+    transform: rotateY(180deg);
+    transition: all .9s;
+}
+  
+.card-packaging.is-open .card--third {
+    transform: rotateY(180deg);
+    transition: all .9s;
+    transition-delay: .4s;
+}
+
+.card-center {
+    position: relative;
+    padding: 35px 25px;
+    background-image: url(./images/background2.png);
+    background-size: cover;
+    background-position: center;
+    z-index: 1; 
+}
+
+.card-center::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(./images/background2.png);
+    background-size: cover;
+    background-position: center;
+    filter: blur(90px);
+    z-index: -1; 
+    clip-path: inset(35px 25px); 
+}
+
+.card-center-content p{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+}
+
+.card-center-content-top{
+    font-family: 'Playball', cursive;
+    font-size: 16px;
+    color: #081938;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+
+.card-center-content-name{
+    position: relative;
+    font-family: 'Caveat', cursive;
+    color: #081938;
+}
+.card-center-content-invite-test{
+    font-family: 'Playball', cursive;
+    font-size: 20px;
+    color: #081938;
+    margin: 20px 0 10px 0;
+    text-align: center; 
+}
+.card-center-content-invite-test2{
+    font-family: 'Playball', cursive;
+    font-size: 20px;
+    color: #081938;
+    margin: 10px 0 20px 0;
+    text-align: center; 
+}
+.card-center-content-invite{
+    font-family: 'Playball', cursive;
+    font-size: 15px;
+    color: #081938;
+    text-align: center;
+}
+.card-center-content-left, .card-center-content-right{
+    flex: 1;
+    text-align: center;
+    color: #081938;
+}
+
+.card-center-content-left{
+    padding-right: 6px;
+    border-right: 1px solid #333;
+}
+
+.card-center-content-left p, sup{
+    font-family: 'Playball', cursive;
+    font-size: 12px;
+}
+
+.card-center-content-right p{
+    font-family: 'Playball', cursive;
+    font-size: 12px;
+    margin: 5px;
+}
+.card-center-content-bottom{
+    text-align: center;
+    bottom: 25px;
+    font-family: 'Caveat', cursive;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #081938;
+}
+.card-center-content-bottom-down{
+    text-align: center;
+    bottom: 25px;
+    font-family: 'Playball', cursive;
+    margin-top: 10px;
+    font-size: 120px;
+    color: #081938;
+}
+
+.card-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    padding: 15px 25px;
+}
+  
+.card-wrapper.back {
+    transform: rotateY(180deg);
+}
+  
+.close {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+@media (max-width: 1200px) {
+    .modal-container{
+        min-width: 800px;
+    }
+}
+
+
+  
+#heart {
+      position: relative;
+      bottom: -10px;
+      width: 100px;
+      height: 90px;
+      animation: heartbeat 1s infinite;
+      margin:0 auto
+  }
+  #heart:before,
+  #heart:after {
+      position: absolute;
+      content: "";
+      left: 50px;
+      top: 0;
+      width: 50px;
+      height: 80px;
+      background: #f30000;
+      box-shadow: 0 0 60px #f4447c,
+                  0 0 60px #f4447c;
+      -moz-border-radius: 50px 50px 0 0;
+      border-radius: 50px 50px 0 0;
+      -webkit-transform: rotate(-45deg);
+         -moz-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+           -o-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+      -webkit-transform-origin: 0 100%;
+         -moz-transform-origin: 0 100%;
+          -ms-transform-origin: 0 100%;
+           -o-transform-origin: 0 100%;
+              transform-origin: 0 100%;
+  }
+  #heart:after {
+      left: 0;
+      -webkit-transform: rotate(45deg);
+         -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+           -o-transform: rotate(45deg);
+              transform: rotate(45deg);
+      -webkit-transform-origin: 100% 100%;
+         -moz-transform-origin: 100% 100%;
+          -ms-transform-origin: 100% 100%;
+           -o-transform-origin: 100% 100%;
+              transform-origin :100% 100%;
+  }
+
+  
+  @keyframes heartbeat
+  {
+    0%
+    {
+      transform: scale( .75 );
+    }
+    20%
+    {
+      transform: scale( 1 );
+    }
+    40%
+    {
+      transform: scale( .75 );
+    }
+    60%
+    {
+      transform: scale( 1 );
+    }
+    80%
+    {
+      transform: scale( .75 );
+    }
+    100%
+    {
+      transform: scale( .75 );
+    }
+  }
+  
